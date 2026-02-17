@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace Login - Kwantu Style</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body class="bg-gray-50 flex flex-col items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-xl shadow-lg text-center max-w-sm border-t-4 border-green-600">
+        <h1 class="text-2xl font-bold text-gray-800 mb-2">FSDestea Workplace</h1>
+        <p class="text-gray-500 mb-6 text-sm">Scan the QR code to log in for your shift</p>
+        
+        <div id="qrcode" class="flex justify-center mb-6"></div>
+
+        <div class="text-left bg-blue-50 p-4 rounded-lg">
+            <p class="text-xs text-blue-700 font-semibold uppercase">Instructions:</p>
+            <ol class="text-xs text-blue-800 list-decimal ml-4 mt-1">
+                <li>Open your phone camera or QR scanner.</li>
+                <li>Scan the code above.</li>
+                <li>Report to the Admin to finalize details.</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // Replace 'yourdomain.com' with your actual hosted URL
+        const loginUrl = window.location.href.replace('index.html', 'admin-clockin.html');
+        
+        new QRCode(document.getElementById("qrcode"), {
+            text: loginUrl,
+            width: 200,
+            height: 200,
+            colorDark : "#059669", // Kwantu/Green theme
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+    </script>
+</body>
+</html>
